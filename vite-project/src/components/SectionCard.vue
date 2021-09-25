@@ -18,12 +18,17 @@ defineProps({
 .section-card {
   border: var(--border-primary);
   padding: 12px;
-  margin: 6px;
+  margin: 6px 0;
   border-radius: 6px;
   transition-property: all;
   transition-duration: 0.2s;
   flex: 1;
   min-width: 48%;
+  cursor: pointer;
+}
+
+.section-card:nth-child(odd) {
+  margin: 6px;
 }
 
 .section-card:hover {

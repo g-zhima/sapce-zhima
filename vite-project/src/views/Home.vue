@@ -12,10 +12,6 @@
           v-for="card in sectionCardsList"
           v-bind="card"
         ></SectionCard>
-        <SectionCard
-          v-for="card in sectionCardsList"
-          v-bind="card"
-        ></SectionCard>
       </div>
       <SectionTitle>@</SectionTitle>
       <div class="section-cards">
@@ -29,12 +25,15 @@
         ></SectionCard>
       </div>
     </section>
+    <Footer />
   </div>
 </template>
 
 <script setup lang="ts">
 import SectionTitle from '../components/SectionTitle.vue'
 import SectionCard from '../components/SectionCard.vue'
+import Footer from '../components/Footer.vue'
+
 import { reactive } from '@vue/reactivity'
 
 const sectionCardsList = reactive([

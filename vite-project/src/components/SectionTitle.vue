@@ -4,11 +4,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
-// defineProps({
-//   content: String,
-// })
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 .section-title {

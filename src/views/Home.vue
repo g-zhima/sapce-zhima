@@ -2,8 +2,8 @@
   <div class="home">
     <section class="hero">
       <h3>Hi,往这儿看! <span class="animate-wobble">👋</span></h3>
-      <h1>我是 Zhima</h1>
-      <span ref="hobbyEle"></span>
+      <h1>我是 <span class="marked">Zhima</span></h1>
+      <span class="hobby" ref="hobbyEle"></span>
     </section>
     <section class="section">
       <SectionTitle></SectionTitle>
@@ -30,14 +30,15 @@
 </template>
 
 <script setup lang="ts">
+import { reactive, ref } from '@vue/reactivity'
+import { onMounted } from '@vue/runtime-core'
+import Typed from 'typed.js'
+import { useTransition, TransitionPresets } from '@vueuse/core'
 import SectionTitle from '../components/SectionTitle.vue'
 import SectionCard from '../components/SectionCard.vue'
 import Footer from '../components/Footer.vue'
-import Typed from 'typed.js'
 
-import { reactive, ref } from '@vue/reactivity'
-import { onMounted } from '@vue/runtime-core'
-
+/* section列表 */
 const sectionCardsList = reactive([
   {
     emoji: '📜',
@@ -51,6 +52,7 @@ const sectionCardsList = reactive([
   },
 ])
 
+/* 打字机效果 */
 const hobbyEle = ref<Element>()
 onMounted(() => {
   if (hobbyEle.value) {
@@ -66,6 +68,13 @@ onMounted(() => {
       loop: true,
     })
   }
+})
+
+/* css过渡效果 */
+const source = ref(0)
+const output = useTransition(source, {
+  duration: 1000,
+  transition: TransitionPresets.easeInOutCubic,
 })
 </script>
 
@@ -117,7 +126,11 @@ onMounted(() => {
   margin: 38px 0;
 }
 
-.hero span {
+.hero .marked {
+  text-decoration: underline deeppink;
+}
+
+.hobby {
   font-size: 20px;
 }
 

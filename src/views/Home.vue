@@ -3,7 +3,7 @@
     <section class="hero">
       <h3>Hi,往这儿看! <span class="animate-wobble">👋</span></h3>
       <h1>我是 Zhima</h1>
-      <p>一个 JavaScript 爱好者</p>
+      <span ref="hobbyEle"></span>
     </section>
     <section class="section">
       <SectionTitle></SectionTitle>
@@ -33,8 +33,10 @@
 import SectionTitle from '../components/SectionTitle.vue'
 import SectionCard from '../components/SectionCard.vue'
 import Footer from '../components/Footer.vue'
+import Typed from 'typed.js'
 
-import { reactive } from '@vue/reactivity'
+import { reactive, ref } from '@vue/reactivity'
+import { onMounted } from '@vue/runtime-core'
 
 const sectionCardsList = reactive([
   {
@@ -48,6 +50,23 @@ const sectionCardsList = reactive([
     detail: '此处无签胜有签',
   },
 ])
+
+const hobbyEle = ref<Element>()
+onMounted(() => {
+  if (hobbyEle.value) {
+    new Typed(hobbyEle.value, {
+      strings: [
+        '一个 JavaScript 爱好者.',
+        '一位没有秃头的前端工程狮.',
+        '一只热爱编程的大马猴.',
+        '一个喜欢设计UI的业余设计师.',
+      ],
+      typeSpeed: 80,
+      backSpeed: 50,
+      loop: true,
+    })
+  }
+})
 </script>
 
 <style scoped>
@@ -98,7 +117,7 @@ const sectionCardsList = reactive([
   margin: 38px 0;
 }
 
-.hero p {
+.hero span {
   font-size: 20px;
 }
 

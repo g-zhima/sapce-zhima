@@ -42,6 +42,7 @@ defineProps({
 
 .title {
   font-size: var(--txt-size-large);
+  margin: 6px 0;
 }
 
 .detail {

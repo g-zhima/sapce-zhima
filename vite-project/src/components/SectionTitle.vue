@@ -14,6 +14,7 @@
 .section-title {
   text-align: center;
   font-size: var(--txt-size-normal);
+  margin: 20px 0;
 }
 .section-title::before {
   content: '';

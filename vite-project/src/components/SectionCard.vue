@@ -23,6 +23,7 @@ defineProps({
   transition-property: all;
   transition-duration: 0.2s;
   flex: 1;
+  min-width: 48%;
 }
 
 .section-card:hover {

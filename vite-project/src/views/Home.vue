@@ -12,6 +12,21 @@
           v-for="card in sectionCardsList"
           v-bind="card"
         ></SectionCard>
+        <SectionCard
+          v-for="card in sectionCardsList"
+          v-bind="card"
+        ></SectionCard>
+      </div>
+      <SectionTitle>@</SectionTitle>
+      <div class="section-cards">
+        <SectionCard
+          v-for="card in sectionCardsList"
+          v-bind="card"
+        ></SectionCard>
+        <SectionCard
+          v-for="card in sectionCardsList"
+          v-bind="card"
+        ></SectionCard>
       </div>
     </section>
   </div>
@@ -91,5 +106,6 @@ const sectionCardsList = reactive([
 .section-cards {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 </style>
